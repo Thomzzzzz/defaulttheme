@@ -1,0 +1,20 @@
+/*!
+Theme Name: Theme Name - Default
+Theme URI: http://wearetrue.nl/
+Author: True Communications
+Author URI: http://wearetrue.nl/
+Description: Standaard template True Communications
+Version: 1.0
+*/
+
+@import "compass";
+@import "compass/reset";
+@import "susy";
+@import "breakpoint";
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/base";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/content";
