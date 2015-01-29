@@ -11,4 +11,5 @@
 
 <header>
     <!--    header content goes here... -->
+    <a class="logo" href="<?php echo home_url(); ?>"></a>
 </header>
