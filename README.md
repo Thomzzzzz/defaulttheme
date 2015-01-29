@@ -16,4 +16,3 @@ Elke thema bevat een aantal standaard documenten, namelijk:
 
 Deze documenten zijn standaar opgemaakt met een header, footer, Yoast Breadcrumbs (indien de plugin geïnstalleerd is) en standaard zoekresultaten / 404 pagina.
 
-[Thom](http://thomastijdink.com)
