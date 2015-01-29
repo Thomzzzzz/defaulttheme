@@ -28,7 +28,6 @@ function addScripts() {
     wp_enqueue_script('Modernizr', 'http://modernizr.com/downloads/modernizr-latest.js', '', '', true); // Modernizr via CDN
     //  add other javascripts here
 
-
     if ( file_exists( TEMPLATEPATH.'/js/min/script-min.js' ) ) {
         wp_enqueue_script('script', get_template_directory_uri()."/js/min/script-min.js", array(), '1.0', true);
     } else {
