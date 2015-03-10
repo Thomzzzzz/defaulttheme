@@ -29,7 +29,7 @@ if ( function_exists('yoast_breadcrumb') ) {
     }
     ?>
 
-    <?
+    <?php
     //  pagination
     $prev_link = get_previous_posts_link(__('&laquo; Vorige'));
     $next_link = get_next_posts_link(__('Volgende &raquo;'));
