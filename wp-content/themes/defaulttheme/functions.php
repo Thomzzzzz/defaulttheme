@@ -38,6 +38,9 @@ function addScripts() {
 add_action( 'wp_enqueue_scripts', 'addScripts' );
 
 
+
+
+
 /**
  *  Remove menu's from admin - Uncomment pages to remove
  */
