@@ -59,3 +59,17 @@ function remove_menus(){
 add_action( 'admin_menu', 'remove_menus' );
 
 
+/**
+ * @param $src - Original script + stylesheet source path
+ * @return string - New source path without version number
+ * Will only work in development environment
+ */
+if( strstr($_SERVER['HTTP_HOST'], '.dev.lan') || strstr($_SERVER['HTTP_HOST'], '172.17.') || strstr($_SERVER['HTTP_HOST'], '192.168.') || strstr($_SERVER['HTTP_HOST'], '.tst') ) {
+    function remove_cssjs_ver($src) {
+        if (strpos($src, '?ver='))
+            $src = remove_query_arg('ver', $src);
+        return $src;
+    }
+    add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2);
+    add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2);
+}
