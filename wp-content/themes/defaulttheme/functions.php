@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  *  Require files
  */
@@ -38,8 +36,22 @@ function addScripts() {
 add_action( 'wp_enqueue_scripts', 'addScripts' );
 
 
+/**
+ *  Images are not default links to the fullscreen image
+ */
+update_option('image_default_link_type', 'none');
+update_option('image_default_size', 'full');
 
 
+
+/**
+ *  no hardcoded width and height to post thumbnails
+ */
+function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
+    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 
 /**
  *  Remove menu's from admin - Uncomment pages to remove
