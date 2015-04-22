@@ -20,4 +20,4 @@ javascripts_dir = "/wp-content/themes/defaulttheme/js"
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
- sourcemap = true
+sourcemap = true
