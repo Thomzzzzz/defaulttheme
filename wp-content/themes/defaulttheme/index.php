@@ -10,8 +10,5 @@ get_header(); ?>
         }
     }
 ?>
-
-    <a href="nus">eiurhgiuerhguiehrg</a>
-    
 </div>
 <?php get_footer(); ?>
