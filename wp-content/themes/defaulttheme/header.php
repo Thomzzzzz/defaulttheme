@@ -15,10 +15,10 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone.png"><!-- 60x60 -->
-    <link rel="apple-touch-icon" sizes="76x76" href="href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone-retina.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone.png"><!-- 60x60 -->
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad-retina.png">
 
     <?php wp_head(); ?>
 </head>
