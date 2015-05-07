@@ -8,7 +8,7 @@ require_once('custom_post_types.php');
 /**
  *  remove admin bar in livesite when logged in
  */
-add_filter('show_admin_bar', '__return_false');
+add_filter('show_admin_bar', 'false');
 
 
 /**
