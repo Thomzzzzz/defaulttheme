@@ -104,6 +104,124 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
+//  add ACF social media to admin
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array (
+        'key' => 'group_554c674391910',
+        'title' => 'Social media accounts',
+        'fields' => array (
+            array (
+                'key' => 'field_554c674869720',
+                'label' => 'Social media accounts',
+                'name' => 'socialLinks',
+                'type' => 'repeater',
+                'instructions' => 'Voeg de gewenste / beschikbare social media accounts toe',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'min' => 1,
+                'max' => '',
+                'layout' => 'table',
+                'button_label' => 'Nieuwe toevoegen',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_554c67ccfd0cc',
+                        'label' => 'Accountnaam',
+                        'name' => 'accountnaam',
+                        'type' => 'select',
+                        'instructions' => 'Selecteer een social account',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array (
+                            'facebook' => 'Facebook',
+                            'twitter' => 'Twitter',
+                            'linkedin' => 'LinkedIn',
+                            'youtube' => 'YouTube',
+                            'vimeo' => 'Vimeo',
+                            'instagram' => 'Instagram',
+                            'pinterest' => 'Pinterest',
+                            'google-plus' => 'Google+',
+                            'tumblr' => 'Tumblr',
+                        ),
+                        'default_value' => array (
+                            'Maak je keuze' => 'Maak je keuze',
+                        ),
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'ui' => 0,
+                        'ajax' => 0,
+                        'placeholder' => '',
+                        'disabled' => 0,
+                        'readonly' => 0,
+                    ),
+                    array (
+                        'key' => 'field_554c67ebfd0cd',
+                        'label' => 'Account URL',
+                        'name' => 'accounturl',
+                        'type' => 'url',
+                        'instructions' => 'Voer de volledige URL in van het Social Media account, bijv. https://www.facebook.com/trueapeldoorn of https://www.twitter.com/we_are_true',
+                        'required' => 1,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => 'Social Media URL',
+                    ),
+                    array (
+                        'key' => 'field_554c7fea8a4cc',
+                        'label' => 'Account actief',
+                        'name' => 'actief',
+                        'type' => 'checkbox',
+                        'instructions' => 'Zet het vinkje uit om dit account niet weer te geven',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array (
+                            'ja' => 'Actief',
+                        ),
+                        'default_value' => array (
+                            'ja' => 'ja',
+                        ),
+                        'layout' => 'vertical',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'social-media-settings',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'left',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
+endif;
 
 /**
  * @return string - Volledige div met alle social media links
