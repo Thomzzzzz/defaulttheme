@@ -83,4 +83,84 @@ input {
   -webkit-border-radius: 0;
 }
 
+.socialMediaLinks {
+  display: inline-block;
+}
+.socialMediaLinks:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.socialMediaLinks .icon {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+  font-size: calc( 70 / 2 * 1px);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.socialMediaLinks .icon.facebook {
+  background-color: #3b5998;
+}
+.socialMediaLinks .icon.facebook:hover {
+  background-color: #2d4373;
+}
+.socialMediaLinks .icon.twitter {
+  background-color: #00aced;
+}
+.socialMediaLinks .icon.twitter:hover {
+  background-color: #0087ba;
+}
+.socialMediaLinks .icon.linkedin {
+  background-color: #007bb6;
+}
+.socialMediaLinks .icon.linkedin:hover {
+  background-color: #005983;
+}
+.socialMediaLinks .icon.youtube {
+  background-color: #bb0000;
+}
+.socialMediaLinks .icon.youtube:hover {
+  background-color: #880000;
+}
+.socialMediaLinks .icon.vimeo, .socialMediaLinks .icon.vimeo-square {
+  background-color: #aad450;
+}
+.socialMediaLinks .icon.vimeo:hover, .socialMediaLinks .icon.vimeo-square:hover {
+  background-color: #93c130;
+}
+.socialMediaLinks .icon.instagram {
+  background-color: #517fa4;
+}
+.socialMediaLinks .icon.instagram:hover {
+  background-color: #406582;
+}
+.socialMediaLinks .icon.pinterest {
+  background-color: #cb2027;
+}
+.socialMediaLinks .icon.pinterest:hover {
+  background-color: #9f191f;
+}
+.socialMediaLinks .icon.google-plus {
+  background-color: #dd4b39;
+}
+.socialMediaLinks .icon.google-plus:hover {
+  background-color: #c23321;
+}
+.socialMediaLinks .icon.tumblr {
+  background-color: #32506d;
+}
+.socialMediaLinks .icon.tumblr:hover {
+  background-color: #22364a;
+}
+.socialMediaLinks .icon:hover {
+  font-size: calc( 70 / 2 * 1.05px);
+}
+
 /*# sourceMappingURL=style.css.map */

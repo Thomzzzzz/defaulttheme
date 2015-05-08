@@ -22,15 +22,18 @@ add_theme_support( 'post-thumbnails' );
  *  Add javascripts and stylesheets
  */
 function addScripts() {
+    //  Scripts
     wp_enqueue_script('jquery');
     wp_enqueue_script('Modernizr', 'http://modernizr.com/downloads/modernizr-latest.js', '', '', true); // Modernizr via CDN
     //  add other javascripts here
-
     if ( file_exists( TEMPLATEPATH.'/js/min/script-min.js' ) ) {
         wp_enqueue_script('script', get_template_directory_uri()."/js/min/script-min.js", array(), '1.0', true);
     } else {
         wp_enqueue_script('script', get_template_directory_uri()."/js/script.js", array(), '1.0', true);
     }
+
+    //  Styles
+    wp_enqueue_style('FontAwesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', '', false, 'screen');
     wp_enqueue_style('stylesheet', get_stylesheet_uri(), "", "1.0", "screen");
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
@@ -85,3 +88,47 @@ if( strstr($_SERVER['HTTP_HOST'], '.dev.lan') || strstr($_SERVER['HTTP_HOST'], '
     add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2);
     add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2);
 }
+
+
+
+
+//  function for social media
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' 	=> 'Social media',
+        'menu_title'	=> 'Social media',
+        'menu_slug' 	=> 'social-media-settings',
+        'icon_url'      => 'dashicons-share', // Add this line and replace the second inverted commas with class of the icon you like
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+}
+
+
+/**
+ * @return string - Volledige div met alle social media links
+ */
+function socialMediaLinks(){
+    $sSocial = "";
+    if( function_exists('acf_add_local_field_group') ) {
+        if(have_rows('socialLinks', 'options')){
+            $sSocial = "<div class=\"socialMediaLinks\">";
+            while(have_rows('socialLinks', 'options')){
+                the_row();
+                $account = get_sub_field('accountnaam');
+                $url = get_sub_field('accounturl');
+                if(!empty($account) && !empty($url)){
+                    //  skip social media als niet actief
+                    if( !get_sub_field('actief')) continue;
+                    if($account === 'vimeo'){
+                        $account = "vimeo-square";
+                    }
+                    $sSocial .= "<a href=\"".$url."\" rel=\"external\" class=\"icon ".$account."\"><i class=\"fa fa-".$account."\"></i></a>";
+                }
+            }
+            $sSocial .= "</div>";
+        }
+    }
+    return $sSocial;
+}
+

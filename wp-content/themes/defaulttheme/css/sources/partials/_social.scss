@@ -1,0 +1,7 @@
+.socialMediaLinks {
+    @include clearfix();
+    display: inline-block;
+    .icon {
+        @include socialIcon(70);
+    }
+}
