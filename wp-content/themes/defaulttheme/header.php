@@ -12,13 +12,23 @@
 <head>
     <title><?php the_title(); ?></title>
     <meta charset="utf-8">
-
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone.png"><!-- 60x60 -->
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad.png">
     <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad-retina.png">
+
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {
+            "message": "Deze website gebruikt cookies om ervoor te zorgen dat uw ervaring van onze website optimaal is!",
+            "dismiss": "OK",
+//            "learnMore": "Meer info",
+//            "link": "",
+            "theme": "dark-bottom"};
+    </script>
+    <!-- End Cookie Consent plugin -->
 
     <?php wp_head(); ?>
 </head>

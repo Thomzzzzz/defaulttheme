@@ -1,30 +1,24 @@
 <?php
-/**
- *  Require files
- */
+setcookie('testCookie', 'jawel hoor, ik sta hier', time() + ( 60 * 60 * 24 * 365), '/' );
+
+//  Require files
 require_once('custom_post_types.php');
 
-
-/**
- *  remove admin bar in livesite when logged in
- */
+//  remove admin bar in livesite when logged in
 add_filter('show_admin_bar', 'false');
 
-
-/**
- *  add theme support for extra options
- */
+//  add theme support for extra options
 add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
 
-
-/**
- *  Add javascripts and stylesheets
- */
+//  Add javascripts and stylesheets
 function addScripts() {
     //  Scripts
     wp_enqueue_script('jquery');
     wp_enqueue_script('Modernizr', 'http://modernizr.com/downloads/modernizr-latest.js', '', '', true); // Modernizr via CDN
+
+    wp_enqueue_script('cookieConsent', '//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js', array(), '', true);
+
     //  add other javascripts here
     if ( file_exists( TEMPLATEPATH.'/js/min/script-min.js' ) ) {
         wp_enqueue_script('script', get_template_directory_uri()."/js/min/script-min.js", array(), '1.0', true);
@@ -33,32 +27,23 @@ function addScripts() {
     }
 
     //  Styles
-    wp_enqueue_style('FontAwesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', '', false, 'screen');
+    wp_enqueue_style('FontAwesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), '4.3.0', 'screen');
     wp_enqueue_style('stylesheet', get_stylesheet_uri(), "", "1.0", "screen");
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
 
-
-/**
- *  Images are not default links to the fullscreen image
- */
+//  Images are not default links to the fullscreen image
 update_option('image_default_link_type', 'none');
 update_option('image_default_size', 'full');
 
-
-
-/**
- *  no hardcoded width and height to post thumbnails
- */
+//  no hardcoded width and height to post thumbnails
 function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
 }
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 
-/**
- *  Remove menu's from admin - Uncomment pages to remove
- */
+//  Remove menu's from admin - Uncomment pages to remove
 function remove_menus(){
 //    remove_menu_page( 'index.php' );                  //Dashboard
 //    remove_menu_page( 'edit.php' );                   //Posts
@@ -73,12 +58,7 @@ function remove_menus(){
 }
 add_action( 'admin_menu', 'remove_menus' );
 
-
-/**
- * @param $src - Original script + stylesheet source path
- * @return string - New source path without version number
- * Will only work in development environment
- */
+//  remove version numbers from css + js -  Will only work in development environment
 if( strstr($_SERVER['HTTP_HOST'], '.dev.lan') || strstr($_SERVER['HTTP_HOST'], '172.17.') || strstr($_SERVER['HTTP_HOST'], '192.168.') || strstr($_SERVER['HTTP_HOST'], '.tst') ) {
     function remove_cssjs_ver($src) {
         if (strpos($src, '?ver='))
@@ -88,9 +68,6 @@ if( strstr($_SERVER['HTTP_HOST'], '.dev.lan') || strstr($_SERVER['HTTP_HOST'], '
     add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2);
     add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2);
 }
-
-
-
 
 //  function for social media
 if( function_exists('acf_add_options_page') ) {
@@ -223,9 +200,7 @@ if( function_exists('acf_add_local_field_group') ):
 
 endif;
 
-/**
- * @return string - Volledige div met alle social media links
- */
+//  Full div with all social media links
 function socialMediaLinks(){
     $sSocial = "";
     if( function_exists('acf_add_local_field_group') ) {
@@ -250,3 +225,25 @@ function socialMediaLinks(){
     return $sSocial;
 }
 
+//  remove formatting from paste
+function forcePasteAsPlainText( $mceInit ) {
+    global $tinymce_version;
+    if ( $tinymce_version[0] < 4 ) {
+        $mceInit[ 'paste_text_sticky' ] = true;
+        $mceInit[ 'paste_text_sticky_default' ] = true;
+    } else {
+        $mceInit[ 'paste_as_text' ] = true;
+    }
+    return $mceInit;
+}
+add_filter( 'tiny_mce_before_init', 'forcePasteAsPlainText' );
+add_filter( 'teeny_mce_before_init', 'forcePasteAsPlainText' );
+
+//  remove paste as plain text button
+function removePasteAsPlainTextButton( $buttons ) {
+    if( ( $key = array_search( 'pastetext', $buttons ) ) !== false ) {
+        unset( $buttons[ $key ] );
+    }
+    return $buttons;
+}
+add_filter( 'mce_buttons_2', 'removePasteAsPlainTextButton' );

@@ -18,8 +18,8 @@
 
 @mixin transition($prop: all, $time: 0.2, $easing: ease){
     -webkit-transition:$prop $time+s $easing;
-    -moz-transition:$prop $time+s $easing;
-    -o-transition:$prop $time+s $easing;
+    // -moz-transition:$prop $time+s $easing;
+    // -o-transition:$prop $time+s $easing;
     transition:$prop $time+s $easing;
 }
 
