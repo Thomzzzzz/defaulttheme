@@ -28,7 +28,7 @@ function addScripts() {
 
     //  Styles
     wp_enqueue_style('FontAwesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), '4.3.0', 'screen');
-    wp_enqueue_style('stylesheet', get_stylesheet_uri(), "", "1.0", "screen");
+    wp_enqueue_style('stylesheet', get_stylesheet_uri(), array(), "1.0", "screen");
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
 
