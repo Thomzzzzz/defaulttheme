@@ -96,123 +96,214 @@ if( function_exists('acf_add_options_page') && function_exists('acf_add_options_
 }
 
 //  add ACF social media to admin
-//if( function_exists('acf_add_local_field_group') ):
-//
-//    acf_add_local_field_group(array (
-//        'key' => 'group_554c674391910',
-//        'title' => 'Social media accounts',
-//        'fields' => array (
-//            array (
-//                'key' => 'field_554c674869720',
-//                'label' => 'Social media accounts',
-//                'name' => 'socialLinks',
-//                'type' => 'repeater',
-//                'instructions' => 'Voeg de gewenste / beschikbare social media accounts toe',
-//                'required' => 0,
-//                'conditional_logic' => 0,
-//                'wrapper' => array (
-//                    'width' => '',
-//                    'class' => '',
-//                    'id' => '',
-//                ),
-//                'min' => 1,
-//                'max' => '',
-//                'layout' => 'table',
-//                'button_label' => 'Nieuwe toevoegen',
-//                'sub_fields' => array (
-//                    array (
-//                        'key' => 'field_554c67ccfd0cc',
-//                        'label' => 'Accountnaam',
-//                        'name' => 'accountnaam',
-//                        'type' => 'select',
-//                        'instructions' => 'Selecteer een social account',
-//                        'required' => 0,
-//                        'conditional_logic' => 0,
-//                        'wrapper' => array (
-//                            'width' => '',
-//                            'class' => '',
-//                            'id' => '',
-//                        ),
-//                        'choices' => array (
-//                            'facebook' => 'Facebook',
-//                            'twitter' => 'Twitter',
-//                            'linkedin' => 'LinkedIn',
-//                            'youtube' => 'YouTube',
-//                            'vimeo' => 'Vimeo',
-//                            'instagram' => 'Instagram',
-//                            'pinterest' => 'Pinterest',
-//                            'google-plus' => 'Google+',
-//                            'tumblr' => 'Tumblr',
-//                        ),
-//                        'default_value' => array (
-//                            'Maak je keuze' => 'Maak je keuze',
-//                        ),
-//                        'allow_null' => 0,
-//                        'multiple' => 0,
-//                        'ui' => 0,
-//                        'ajax' => 0,
-//                        'placeholder' => '',
-//                        'disabled' => 0,
-//                        'readonly' => 0,
-//                    ),
-//                    array (
-//                        'key' => 'field_554c67ebfd0cd',
-//                        'label' => 'Account URL',
-//                        'name' => 'accounturl',
-//                        'type' => 'url',
-//                        'instructions' => 'Voer de volledige URL in van het Social Media account, bijv. https://www.facebook.com/trueapeldoorn of https://www.twitter.com/we_are_true',
-//                        'required' => 0,
-//                        'conditional_logic' => 0,
-//                        'wrapper' => array (
-//                            'width' => '',
-//                            'class' => '',
-//                            'id' => '',
-//                        ),
-//                        'default_value' => '',
-//                        'placeholder' => 'Social Media URL',
-//                    ),
-//                    array (
-//                        'key' => 'field_554c7fea8a4cc',
-//                        'label' => 'Account actief',
-//                        'name' => 'actief',
-//                        'type' => 'checkbox',
-//                        'instructions' => 'Zet het vinkje uit om dit account niet weer te geven',
-//                        'required' => 0,
-//                        'conditional_logic' => 0,
-//                        'wrapper' => array (
-//                            'width' => '',
-//                            'class' => '',
-//                            'id' => '',
-//                        ),
-//                        'choices' => array (
-//                            'ja' => 'Actief',
-//                        ),
-//                        'default_value' => array (
-//                            'ja' => 'ja',
-//                        ),
-//                        'layout' => 'vertical',
-//                    ),
-//                ),
-//            ),
-//        ),
-//        'location' => array (
-//            array (
-//                array (
-//                    'param' => 'options_page',
-//                    'operator' => '==',
-//                    'value' => 'social-media-settings',
-//                ),
-//            ),
-//        ),
-//        'menu_order' => 0,
-//        'position' => 'normal',
-//        'style' => 'default',
-//        'label_placement' => 'left',
-//        'instruction_placement' => 'label',
-//        'hide_on_screen' => '',
-//    ));
-//
-//endif;
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array (
+        'key' => 'group_554c674391910',
+        'title' => 'Social media accounts',
+        'fields' => array (
+            array (
+                'key' => 'field_554c674869720',
+                'label' => 'Social media accounts',
+                'name' => 'socialLinks',
+                'type' => 'repeater',
+                'instructions' => 'Voeg de gewenste / beschikbare social media accounts toe',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'min' => 1,
+                'max' => '',
+                'layout' => 'table',
+                'button_label' => 'Nieuwe toevoegen',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_554c67ccfd0cc',
+                        'label' => 'Accountnaam',
+                        'name' => 'accountnaam',
+                        'type' => 'select',
+                        'instructions' => 'Selecteer een social account',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array (
+                            'facebook' => 'Facebook',
+                            'twitter' => 'Twitter',
+                            'linkedin' => 'LinkedIn',
+                            'youtube' => 'YouTube',
+                            'vimeo' => 'Vimeo',
+                            'instagram' => 'Instagram',
+                            'pinterest' => 'Pinterest',
+                            'google-plus' => 'Google+',
+                            'tumblr' => 'Tumblr',
+                        ),
+                        'default_value' => array (
+                            'Maak je keuze' => 'Maak je keuze',
+                        ),
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'ui' => 0,
+                        'ajax' => 0,
+                        'placeholder' => '',
+                        'disabled' => 0,
+                        'readonly' => 0,
+                    ),
+                    array (
+                        'key' => 'field_554c67ebfd0cd',
+                        'label' => 'Account URL',
+                        'name' => 'accounturl',
+                        'type' => 'url',
+                        'instructions' => 'Voer de volledige URL in van het Social Media account, bijv. https://www.facebook.com/trueapeldoorn of https://www.twitter.com/we_are_true',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => 'Social Media URL',
+                    ),
+                    array (
+                        'key' => 'field_554c7fea8a4cc',
+                        'label' => 'Account actief',
+                        'name' => 'actief',
+                        'type' => 'checkbox',
+                        'instructions' => 'Zet het vinkje uit om dit account niet weer te geven',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array (
+                            'ja' => 'Actief',
+                        ),
+                        'default_value' => array (
+                            'ja' => 'ja',
+                        ),
+                        'layout' => 'vertical',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'social-media-settings',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'left',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
+endif;
+
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array (
+        'key' => 'group_557fff689812a',
+        'title' => 'Aanvullende instellingen',
+        'fields' => array (
+            array (
+                'key' => 'field_55800b559de9b',
+                'label' => 'Uitleg',
+                'name' => '',
+                'type' => 'message',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => 'Op deze pagina\'s worden extra onderdelen van de website ingevuld.
+
+Hierbij valt te denken aan Google Analytics, Social Media accounts en algemene adresgegevens.',
+                'esc_html' => 0,
+            ),
+            array (
+                'key' => 'field_557fffb13fcaa',
+                'label' => 'Google Analytics',
+                'name' => 'google_analytics',
+                'type' => 'text',
+                'instructions' => 'Voer de Google Analytics code in. Deze wordt vervolgens automatisch ingeladen op iedere pagina.',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => 'UA-12345678-90',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+                'readonly' => 0,
+                'disabled' => 0,
+            ),
+            array (
+                'key' => 'field_55800cec97788',
+                'label' => 'Contactgegevens',
+                'name' => 'contactgegevens',
+                'type' => 'wysiwyg',
+                'instructions' => 'Voer hier de algemene contactgegevens in. Denk hierbij aan het post- en/of bezoekafdres, een algemeen telefoonnummer. Deze gegevens worden op iedere pagina in de footer (onderkant van de pagina) weergegeven.',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '<strong>Naam Bedrijf
+</strong>Voorbeeldadres 123
+1234 AB Amsterdam
+
++31 (0)12 - 345 67 89
+
+<a href="mailto:info@bedrijfsnaam.nl">info@bedrijfsnaam.nl</a>',
+                'tabs' => 'all',
+                'toolbar' => 'basic',
+                'media_upload' => 0,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'true-extra',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
+
+endif;
 
 //  Full div with all social media links
 function socialMediaLinks(){
