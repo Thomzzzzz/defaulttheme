@@ -1,31 +1,31 @@
 <?php
 
 //  register custom post type
-function custom_post_name() {
+function custom_post_type_name() {
     $labels = array(
-        'name'               => '',
-        'singular_name'      => '',
-        'menu_name'          => '',
-        'parent_item_colon'  => '',
+        'name'               => 'PostTypeName',
+        'singular_name'      => 'PostTypSingulareName',
+        'menu_name'          => 'PostTypeName',
+        'parent_item_colon'  => 'PostTypeName',
         'all_items'          => 'Alle items',
         'view_item'          => 'Bekijk item',
         'add_new_item'       => 'Voeg een item toe',
-        'add_new'            => 'Voeg \'\' toe',
-        'edit_item'          => 'Bewerk \'\'item',
-        'update_item'        => 'Update \'\'item',
-        'search_items'       => 'Zoek \'\'item',
+        'add_new'            => 'Voeg PostTypeName toe',
+        'edit_item'          => 'Bewerk PostTypeName item',
+        'update_item'        => 'Update PostTypeName item',
+        'search_items'       => 'Zoek PostTypeName item',
         'not_found'          => 'Niet gevonden',
         'not_found_in_trash' => 'Niet gevonden in de trash',
     );
     $rewrite = array(
-        'slug'       => '',
+        'slug'       => 'PostTypeName',
         'with_front' => true,
         'pages'      => true,
         'feeds'      => true
     );
     $args = array(
-        'label'               => '\'\'',
-        'description'         => ' \'\'item',
+        'label'               => 'PostTypeName',
+        'description'         => 'PostTypeName item',
         'labels'              => $labels,
         'supports'            => array('title', 'editor', 'thumbnail'),
         'taxonomies'          => array(' '),
@@ -44,6 +44,6 @@ function custom_post_name() {
         'rewrite'             => $rewrite,
         'capability_type'     => 'page'
     );
-    register_post_type( ' \'\'  ', $args );
+    register_post_type( 'PostTypeName', $args );
 }
-add_action( 'init', 'custom_post_name' );
+add_action( 'init', 'custom_post_type_name' );
