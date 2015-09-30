@@ -12,17 +12,21 @@ Version: 1.0
 @import "susy";
 @import "breakpoint";
 
+
 @import "partials/variables";
 @import "partials/mixins";
 @import "partials/base";
 @import "partials/social";
 
-//@import "partials/header";
-//@import "partials/footer";
-//@import "partials/content";
+
+@import "partials/header";
+@import "partials/footer";
+@import "partials/content";
+
 
 //  import FontAwesome
 @import "vendor/fontAwesome/font-awesome";
 
+
 //  import print stylesheet
-@import "partials/print";
+//@import "partials/print";

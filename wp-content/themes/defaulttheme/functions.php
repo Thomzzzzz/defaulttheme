@@ -1,5 +1,6 @@
 <?php
-setcookie('testCookie', 'jawel hoor, ik sta hier', time() + ( 60 * 60 * 24 * 365), '/' );
+//  Need cookies? Here!
+//setcookie('testCookie', 'jawel hoor, ik sta hier', time() + ( 60 * 60 * 24 * 365), '/' );
 
 //  Require files
 require_once('custom_post_types.php');
@@ -25,9 +26,7 @@ function addScripts() {
     } else {
         wp_enqueue_script('script', get_template_directory_uri()."/js/script.js", array(), '1.0', true);
     }
-
     //  Styles
-//    wp_enqueue_style('FontAwesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), '4.3.0', 'screen');
     wp_enqueue_style('stylesheet', get_stylesheet_uri(), array(), "1.0", "screen");
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
