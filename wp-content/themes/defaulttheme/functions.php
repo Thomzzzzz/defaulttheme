@@ -354,15 +354,16 @@ function googleAnalytics(){
 
 
 //  remove formatting from paste
-function forcePasteAsPlainText( $mceInit ) {
+function forcePasteAsPlainText( $init ) {
     global $tinymce_version;
     if ( $tinymce_version[0] < 4 ) {
-        $mceInit[ 'paste_text_sticky' ] = true;
-        $mceInit[ 'paste_text_sticky_default' ] = true;
+        $init[ 'paste_text_sticky' ] = true;
+        $init[ 'paste_text_sticky_default' ] = true;
     } else {
-        $mceInit[ 'paste_as_text' ] = true;
+        $init[ 'paste_as_text' ] = true;
     }
-    return $mceInit;
+    $init['block_formats'] = 'Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;';
+    return $init;
 }
 add_filter( 'tiny_mce_before_init', 'forcePasteAsPlainText' );
 add_filter( 'teeny_mce_before_init', 'forcePasteAsPlainText' );
