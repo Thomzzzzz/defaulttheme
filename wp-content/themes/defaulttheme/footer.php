@@ -1,8 +1,11 @@
 <footer>
     <!--    footer content goes here... -->
     <?php
-        the_field('contactgegevens', 'option');
-        echo socialMediaLinks();
+    $sFooterContact = get_field('contactgegevens', 'option');
+    if(!empty($sFooterContact)){
+        echo $sFooterContact;
+    }
+    echo socialMediaLinks();
     ?>
 </footer>
 <?php

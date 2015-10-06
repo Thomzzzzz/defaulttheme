@@ -3,19 +3,19 @@
 //  register custom post type
 function custom_post_type_name() {
     $labels = array(
-        'name'               => 'PostTypeName',
-        'singular_name'      => 'PostTypSingulareName',
-        'menu_name'          => 'PostTypeName',
-        'parent_item_colon'  => 'PostTypeName',
-        'all_items'          => 'Alle items',
-        'view_item'          => 'Bekijk item',
-        'add_new_item'       => 'Voeg een item toe',
-        'add_new'            => 'Voeg PostTypeName toe',
-        'edit_item'          => 'Bewerk PostTypeName item',
-        'update_item'        => 'Update PostTypeName item',
-        'search_items'       => 'Zoek PostTypeName item',
-        'not_found'          => 'Niet gevonden',
-        'not_found_in_trash' => 'Niet gevonden in de trash',
+        'name'               => __( 'Post Type Name' ),
+        'singular_name'      => __( 'Post Type Singular Name' ),
+        'menu_name'          => __( 'Post Type Menu title' ),
+        'parent_item_colon'  => __( 'PostTypeName' ),
+        'all_items'          => __( 'Alle items' ),
+        'view_item'          => __( 'Bekijk item' ),
+        'add_new_item'       => __( 'Voeg een item toe' ),
+        'add_new'            => __( 'Voeg Post Type toe' ),
+        'edit_item'          => __( 'Bewerk Post Type' ),
+        'update_item'        => __( 'Update Post Type' ),
+        'search_items'       => __( 'Zoek Post Type' ),
+        'not_found'          => __( 'Niet gevonden' ),
+        'not_found_in_trash' => __( 'Niet gevonden in de trash' ),
     );
     $rewrite = array(
         'slug'       => 'PostTypeName',
@@ -24,8 +24,8 @@ function custom_post_type_name() {
         'feeds'      => true
     );
     $args = array(
-        'label'               => 'PostTypeName',
-        'description'         => 'PostTypeName item',
+        'label'               => 'Post Type Name',
+        'description'         => 'Post Type description',
         'labels'              => $labels,
         'supports'            => array('title', 'editor', 'thumbnail'),
         'taxonomies'          => array(' '),
@@ -44,6 +44,6 @@ function custom_post_type_name() {
         'rewrite'             => $rewrite,
         'capability_type'     => 'page'
     );
-    register_post_type( 'PostTypeName', $args );
+    register_post_type( 'Post Type', $args );
 }
 add_action( 'init', 'custom_post_type_name' );

@@ -352,7 +352,6 @@ function googleAnalytics(){
     return $sAnalytics;
 }
 
-
 //  remove formatting from paste
 function forcePasteAsPlainText( $init ) {
     global $tinymce_version;
