@@ -1,15 +1,17 @@
 <footer>
     <!--    footer content goes here... -->
     <?php
-    $sFooterContact = get_field('contactgegevens', 'option');
-    if(!empty($sFooterContact)){
-        echo $sFooterContact;
+    if (function_exists('get_field')) {
+        $sFooterContact = get_field('contactgegevens', 'option');
+        if (!empty($sFooterContact)) {
+            echo $sFooterContact;
+        }
+        echo socialMediaLinks();
     }
-    echo socialMediaLinks();
     ?>
 </footer>
 <?php
-    echo googleAnalytics();
+echo googleAnalytics();
 ?>
 <?php wp_footer(); ?>
 </body>
