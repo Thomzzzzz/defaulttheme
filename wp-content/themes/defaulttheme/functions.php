@@ -18,7 +18,7 @@ function addScripts() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('Modernizr', get_template_directory_uri() . '/js/vendor/modernizr.min.js', '2.8.3', '', true); // Modernizr via CDN
 
-    wp_enqueue_script('cookieConsent', '//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js', array(), '', true);
+    wp_enqueue_script('cookieConsent', '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js', array(), '', true);
 
     //  add other javascripts here
     if ( file_exists( TEMPLATEPATH.'/js/min/script-min.js' ) ) {
