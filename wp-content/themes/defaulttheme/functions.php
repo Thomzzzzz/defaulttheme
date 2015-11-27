@@ -75,7 +75,7 @@ if( function_exists('acf_add_options_page') && function_exists('acf_add_options_
         'page_title' => 'True - extra',
         'menu_title' => 'True - extra',
         'menu_slug'  => 'true-extra',
-        'icon_url'   => 'dashicons-carrot',
+        'icon_url'   => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAY1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+aRQ2gAAAAIHRSTlMAAQ8TFjtASEpiY2VsbnOIjo+Rl7a/4eTn7u/3+fv8/j8biWwAAAB4SURBVHgBZc45EsIwEETRMcZmR4BBLGKZ+5+SQqOuH/Cjrhe1qW6aOm3MHcVQ7E8P3kpYkqGYtFleb++P/e4aGuaD2TiaDR5arVirhNYzrz5s/q7H2sXz7Gf9RWdD88JseZNJfbP6YNJnwVAMxVDM0JP7EVMpmfoCzfsUa12FpVYAAAAASUVORK5CYII=',
         'redirect'   => false,
     ) );
 
