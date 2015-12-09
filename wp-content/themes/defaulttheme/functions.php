@@ -1,6 +1,8 @@
 <?php
 //  Need cookies? Here!
 //setcookie('testCookie', 'jawel hoor, ik sta hier', time() + ( 60 * 60 * 24 * 365), '/' );
+setlocale(LC_ALL, 'nl_NL');
+date_default_timezone_set('Europe/Amsterdam');
 
 //  Require files
 require_once('custom_post_types.php');
