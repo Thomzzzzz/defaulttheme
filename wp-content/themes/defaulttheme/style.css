@@ -98,6 +98,10 @@ b, strong {
   font-weight: bold;
 }
 
+::-ms-clear {
+  display: none;
+}
+
 .socialMediaLinks {
   display: inline-block;
 }
@@ -109,12 +113,12 @@ b, strong {
 .socialMediaLinks .icon {
   display: block;
   float: left;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   color: #fff;
   text-align: center;
-  line-height: 70px;
-  font-size: calc( 70 / 2 * 1px);
+  line-height: 100px;
+  font-size: calc( 100 / 2 * 1px);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -173,7 +177,7 @@ b, strong {
   background-color: #22364a;
 }
 .socialMediaLinks .icon:hover {
-  font-size: calc( 70 / 2 * 1.05px);
+  font-size: calc( 100 / 2 * 1.05px);
 }
 
 /*!
