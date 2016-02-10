@@ -35,7 +35,7 @@ add_action( 'wp_enqueue_scripts', 'addScripts' );
 
 //  Images are not default links to the fullscreen image
 update_option('image_default_link_type', 'none');
-update_option('image_default_size', 'full');
+update_option('image_default_size', 'large');
 
 //  no hardcoded width and height to post thumbnails
 function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
