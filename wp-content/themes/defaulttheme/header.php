@@ -22,17 +22,6 @@
     <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/images/touch-icon-ipad-retina.png">
 
-    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-    <script type="text/javascript">
-        window.cookieconsent_options = {
-            "message": "Deze website gebruikt cookies om ervoor te zorgen dat uw ervaring van onze website optimaal is!",
-            "dismiss": "OK",
-//            "learnMore": "Meer info",
-//            "link": "",
-            "theme": "dark-bottom"};
-    </script>
-    <!-- End Cookie Consent plugin -->
-
     <?php wp_head(); ?>
 </head>
 <body>
