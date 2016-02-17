@@ -13,6 +13,7 @@ add_filter('show_admin_bar', '__return_false');
 //  add theme support for extra options
 add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
+add_theme_support( 'html5' );
 
 //  Add javascripts and stylesheets
 function addScripts() {
