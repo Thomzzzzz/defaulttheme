@@ -9,9 +9,7 @@ if ( function_exists('yoast_breadcrumb') ) {
         <?php echo $breadcrumbs; ?>
     </div>
 </div>
-
 <div class="wrapper">
-
     <?php
     if(have_posts()){
         while(have_posts()){
@@ -21,7 +19,5 @@ if ( function_exists('yoast_breadcrumb') ) {
         }
     }
     ?>
-
 </div>
-
-<?php get_footer(); ?>
+<?php get_footer();

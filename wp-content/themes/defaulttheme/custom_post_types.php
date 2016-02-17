@@ -1,5 +1,4 @@
 <?php
-
 //  register custom post type
 function custom_post_type_name() {
     $labels = array(
