@@ -18,8 +18,7 @@ add_theme_support( 'html5' );
 //  Add javascripts and stylesheets
 function addScripts() {
     //  Scripts
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('Modernizr', get_template_directory_uri() . '/js/vendor/modernizr.min.js', '2.8.3', '', true); // Modernizr via CDN
+    //  wp_enqueue_script('script handle', get_template_directory_uri().'/js/vendor/file.min.js', array(), '1.0.0', true);
 
     //  add other javascripts here
     if ( file_exists( TEMPLATEPATH.'/js/min/script-min.js' ) ) {

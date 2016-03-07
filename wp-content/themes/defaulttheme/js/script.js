@@ -1,6 +1,5 @@
 jQuery(document).ready(function($){
 
-
     //  open rel=external in new window
     $('a[rel="external"]').attr('target', '_blank');
 
