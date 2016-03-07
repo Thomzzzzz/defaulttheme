@@ -22,7 +22,7 @@ if (function_exists('yoast_breadcrumb')) {
                 echo "<a href=\"" . get_the_permalink() . "\" >PERMALINK: " . get_the_title() . " &raquo;</a>";
             }
         } else {
-            echo "Er zijn geen zoekresultaten gevonden";
+            echo "<p>Er zijn geen zoekresultaten gevonden.</p>";
         }
         //  pagination
         $prev_link = get_previous_posts_link(__('&laquo; Vorige'));
