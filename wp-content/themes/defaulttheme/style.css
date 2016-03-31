@@ -98,6 +98,11 @@ b, strong {
   font-weight: bold;
 }
 
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
 ::-ms-clear {
   display: none;
 }
