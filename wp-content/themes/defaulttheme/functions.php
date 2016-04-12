@@ -375,3 +375,11 @@ function removePasteAsPlainTextButton( $buttons ) {
     return $buttons;
 }
 add_filter( 'mce_buttons_2', 'removePasteAsPlainTextButton' );
+
+
+// Limit upload file size
+function limit_upload_size() {
+    //  max file size; 2MB
+    return 2000 * 1024;
+}
+add_filter( 'upload_size_limit', 'limit_upload_size' );
