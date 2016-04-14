@@ -9,7 +9,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <head>
-    <title><?php the_title(); ?></title>
+    <title><?php wp_title(); ?></title>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
