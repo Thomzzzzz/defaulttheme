@@ -17,12 +17,12 @@ if (function_exists('yoast_breadcrumb')) {
         if (have_posts()) {
             while (have_posts()) {
                 the_post();
-                echo "<h2>" . get_the_title() . "</h2>";
+                the_title();
                 the_excerpt();
                 echo "<a href=\"" . get_the_permalink() . "\" >PERMALINK: " . get_the_title() . " &raquo;</a>";
             }
         } else {
-            echo "<p>Er zijn geen zoekresultaten gevonden.</p>    ";
+            echo "<p>Er zijn geen zoekresultaten gevonden.</p>";
         }
         //  pagination
         $prev_link = get_previous_posts_link(__('&laquo; Vorige'));

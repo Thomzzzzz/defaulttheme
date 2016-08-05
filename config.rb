@@ -1,7 +1,6 @@
 require 'compass/import-once/activate'
-require 'susy'
+# require 'susy'
 require 'breakpoint'
-
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
@@ -21,7 +20,6 @@ javascripts_dir = "/wp-content/themes/defaulttheme/js"
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
 sourcemap = true
-
 
 # Auto-prefix CSS and / or remove excessive prefixing
 require 'autoprefixer-rails'

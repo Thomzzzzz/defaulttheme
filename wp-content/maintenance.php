@@ -1,32 +1,34 @@
-<?php
-include('../wp-config.php');
-$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die("Er kan (tijdelijk) geen verbinding met de server worden gemaakt. Probeer het nogmaals.");
-$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-if (mysqli_connect_errno()) {
-    printf("No connection");
-    exit;
-}
-//$query = "SELECT * FROM `wp_options` WHERE `option_name` = 'template' ";
-$query = "SELECT * FROM `wp_options` LIMIT 10";
-
-$result = $mysqli->query($query);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $aTemplate[] = $row;
-    }
-    $themeName = $aTemplate['option_value'];
-    $css = 'wp-content/themes/' . $themeName . '/' . 'style.css';
-}
-?>
 <!doctype html>
 <html>
 <head>
-    <title>opdaten</title>
-    <link rel="stylesheet" href="<?php echo(file_exists($css) ? $css : null); ?>" type="text/css">
+    <title>Maintenance</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            width: 500px;
+            text-align: center;
+        }
+
+        h1, p {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 200;
+            line-height: 2em;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
-    <h1></h1>
+    <h1>Onderhoud</h1>
+    <p>Tijdelijk niet beschikbaar vanwege gepland onderhoud. Probeer het over enkele ogenblikken nog een keer.</p>
 </div>
 </body>
 </html>

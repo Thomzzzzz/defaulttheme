@@ -19,6 +19,7 @@ add_theme_support( 'title-tag' );
 //  Add javascripts and stylesheets
 function addScripts() {
     //  Scripts
+    wp_enqueue_script('jquery');
     //  wp_enqueue_script('script handle', get_template_directory_uri().'/js/vendor/file.min.js', array(), '1.0.0', true);
 
     //  add other javascripts here
@@ -28,7 +29,7 @@ function addScripts() {
         wp_enqueue_script('script', get_template_directory_uri()."/js/script.js", array(), '1.0', true);
     }
     //  Styles
-    wp_enqueue_style('stylesheet', get_stylesheet_uri(), array(), "1.0", "screen");
+    wp_enqueue_style('stylesheet', get_stylesheet_uri(), array(), "1.1", "screen");
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
 
@@ -37,11 +38,11 @@ update_option('image_default_link_type', 'none');
 update_option('image_default_size', 'large');
 
 //  no hardcoded width and height to post thumbnails
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
 }
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 
 //  Remove menu's from admin - Uncomment pages to remove
 function remove_menus(){
@@ -71,7 +72,6 @@ if( strstr($_SERVER['HTTP_HOST'], '.dev.lan') || strstr($_SERVER['HTTP_HOST'], '
 
 //  function for social media
 if( function_exists('acf_add_options_page') && function_exists('acf_add_options_sub_page') ) {
-
     acf_add_options_page( array(
         'page_title' => 'True - extra',
         'menu_title' => 'True - extra',
@@ -79,14 +79,12 @@ if( function_exists('acf_add_options_page') && function_exists('acf_add_options_
         'icon_url'   => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAY1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+aRQ2gAAAAIHRSTlMAAQ8TFjtASEpiY2VsbnOIjo+Rl7a/4eTn7u/3+fv8/j8biWwAAAB4SURBVHgBZc45EsIwEETRMcZmR4BBLGKZ+5+SQqOuH/Cjrhe1qW6aOm3MHcVQ7E8P3kpYkqGYtFleb++P/e4aGuaD2TiaDR5arVirhNYzrz5s/q7H2sXz7Gf9RWdD88JseZNJfbP6YNJnwVAMxVDM0JP7EVMpmfoCzfsUa12FpVYAAAAASUVORK5CYII=',
         'redirect'   => false,
     ) );
-
     acf_add_options_sub_page( array(
         'title'      => 'Extra instellingen',
         'menu'       => 'Extra instellingen',
         'slug'       => 'extra-instellingen',
         'parent'     => 'true-extra',
     ) );
-
     acf_add_options_sub_page(array(
         'page_title' => 'Social media',
         'menu_title' => 'Social media',
@@ -97,7 +95,6 @@ if( function_exists('acf_add_options_page') && function_exists('acf_add_options_
 
 //  add ACF social media to admin
 if( function_exists('acf_add_local_field_group') ):
-
     acf_add_local_field_group(array (
         'key' => 'group_554c674391910',
         'title' => 'Social media accounts',
@@ -211,11 +208,9 @@ if( function_exists('acf_add_local_field_group') ):
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
     ));
-
 endif;
 
 if( function_exists('acf_add_local_field_group') ):
-
     acf_add_local_field_group(array (
         'key' => 'group_557fff689812a',
         'title' => 'Aanvullende instellingen',
@@ -302,7 +297,6 @@ Hierbij valt te denken aan Google Analytics, Social Media accounts en algemene a
         'active' => 1,
         'description' => '',
     ));
-
 endif;
 
 //  Full div with all social media links
@@ -337,8 +331,7 @@ function googleAnalytics(){
         $googleAnalytics = get_field('google_analytics', 'option' );
         //  check if the code is formatted correctly
         if( !empty($googleAnalytics) && stristr( $googleAnalytics, 'UA-') ) {
-            $sAnalytics = "
-            <script>
+            $sAnalytics = "<script>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -354,6 +347,8 @@ function googleAnalytics(){
 }
 
 //  remove formatting from paste
+add_filter( 'tiny_mce_before_init', 'forcePasteAsPlainText' );
+add_filter( 'teeny_mce_before_init', 'forcePasteAsPlainText' );
 function forcePasteAsPlainText( $init ) {
     global $tinymce_version;
     if ( $tinymce_version[0] < 4 ) {
@@ -365,22 +360,19 @@ function forcePasteAsPlainText( $init ) {
     $init['block_formats'] = 'Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;';
     return $init;
 }
-add_filter( 'tiny_mce_before_init', 'forcePasteAsPlainText' );
-add_filter( 'teeny_mce_before_init', 'forcePasteAsPlainText' );
 
 //  remove paste as plain text button
-function removePasteAsPlainTextButton( $buttons ) {
-    if( ( $key = array_search( 'pastetext', $buttons ) ) !== false ) {
-        unset( $buttons[ $key ] );
+add_filter('mce_buttons_2', 'removePasteAsPlainTextButton');
+function removePasteAsPlainTextButton($buttons) {
+    if (($key = array_search('pastetext', $buttons)) !== false) {
+        unset($buttons[$key]);
     }
     return $buttons;
 }
-add_filter( 'mce_buttons_2', 'removePasteAsPlainTextButton' );
-
 
 // Limit upload file size
+add_filter( 'upload_size_limit', 'limit_upload_size' );
 function limit_upload_size() {
     //  max file size; 2MB
     return 2000 * 1024;
 }
-add_filter( 'upload_size_limit', 'limit_upload_size' );

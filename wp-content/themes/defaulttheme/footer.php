@@ -11,8 +11,10 @@
     ?>
 </footer>
 <?php
-echo googleAnalytics();
+if(function_exists('googleAnalytics')){
+    echo googleAnalytics();
+}
+wp_footer();
 ?>
-<?php wp_footer(); ?>
 </body>
 </html>

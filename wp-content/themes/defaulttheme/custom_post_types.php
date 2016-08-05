@@ -1,5 +1,6 @@
 <?php
-//  register custom post type
+//  register custom post types
+add_action('init', 'custom_post_type_name');
 function custom_post_type_name() {
     $labels = array(
         'name'               => __('Items Plural Name'),
@@ -44,6 +45,5 @@ function custom_post_type_name() {
         'capability_type'     => 'page'
     );
     register_post_type('Post Type', $args);
+    flush_rewrite_rules();
 }
-
-add_action('init', 'custom_post_type_name');
