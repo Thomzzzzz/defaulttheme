@@ -19,9 +19,7 @@ add_theme_support( 'title-tag' );
 //  Add javascripts and stylesheets
 function addScripts() {
     //  Scripts
-    //  @TODO - voorbeeld
     wp_enqueue_script('jquery');
-
     //  wp_enqueue_script('script handle', get_template_directory_uri().'/js/vendor/file.min.js', array(), '1.0.0', true);
 
     //  add other javascripts here
