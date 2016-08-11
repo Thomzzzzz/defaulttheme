@@ -6,7 +6,9 @@
         if (!empty($sFooterContact)) {
             echo $sFooterContact;
         }
-        echo socialMediaLinks();
+        if(function_exists('socialMediaLinks')) {
+            echo socialMediaLinks();
+        }
     }
     ?>
 </footer>
